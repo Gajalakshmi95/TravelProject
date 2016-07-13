@@ -27,7 +27,7 @@
 	background: url("greyhound-travel-passes-hop-on-hop-off-km-austraia-oz-epic-gap-year-1.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
-	height:667px;
+	height:741px;
 	}
 .button {
 	font: bold 20px garmond;
@@ -103,7 +103,7 @@ document.getElementById('location').innerText=msg;
 	<label> Email: </label>  <input type="email" id="email" placeholder="Enter mail id" name="email" required><br><br>
 	<label> Password: </label>
 	<input type="password" class="pass" onkeyup="validate()" id="password" placeholder="Enter password" name="password" required><br><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="location" ></span><br><br>
+	<span id="location" ></span><br><br>
 	<label>Re-Enter Password: </label>
  	<input type="password" name="password1" id="repass"  placeholder = "Re-Enter Password" required><br><br>
 	<label>Gender: </label><input type="radio" name="gender"> Male
