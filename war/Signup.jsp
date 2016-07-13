@@ -44,6 +44,44 @@
 	{
 	margin:5px;
 	}
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.show {
+    visibility: visible !important;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
 
 </style>
 </head>
@@ -57,9 +95,13 @@ if(!letter.test(text))
 alert("Enter only Alphabets");
 return false;
 }
-
 var fpassword = document.f1.password.value;
 var spassword = document.f1.password1.value;
+if(Pattern.matches("[a-zA-Z0-9]*{0,7}", fpassword))
+	{
+		alert("Password Must be atleast 8 characters");
+		return false;
+	}
 if(!(spassword==fpassword))
 {
 alert("Password should be same");
@@ -70,16 +112,12 @@ else
 return true;
 }
 }
-function validate() { 
-var msg; 
-if(document.f1.password.value.length<8){ 
-msg="Enter 8 characters"; 
-} 
-else {
-msg=null;
+
+function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show');
 }
-document.getElementById('location').innerText=msg; 
-} 
+
 </script>
 <% 
     response.setHeader("Cache-Control", "no-cache"); //Forces caches to obtain a new copy of the page from the origin server 
@@ -89,7 +127,7 @@ document.getElementById('location').innerText=msg;
 %>
 <%if(session.getAttribute("mailid")!=null)
 	{
-	response.sendRedirect("login.jsp");
+	response.sendRedirect("home.jsp");
 	}
 	%>
 <body>
@@ -101,9 +139,8 @@ document.getElementById('location').innerText=msg;
 
 	<label> Name: </label>  <input type="text" id="name" placeholder="Enter name" name="name" required> <br><br>
 	<label> Email: </label>  <input type="email" id="email" placeholder="Enter mail id" name="email" required><br><br>
-	<label> Password: </label>
-	<input type="password" class="pass" onkeyup="validate()" id="password" placeholder="Enter password" name="password" required><br><br>
-	<span id="location" ></span><br><br>
+	<label> Password: </label>	
+	<input type="password" class="pass" id="password" placeholder="Enter password" name="password" required><br><br>
 	<label>Re-Enter Password: </label>
  	<input type="password" name="password1" id="repass"  placeholder = "Re-Enter Password" required><br><br>
 	<label>Gender: </label><input type="radio" name="gender"> Male

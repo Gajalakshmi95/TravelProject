@@ -40,6 +40,8 @@ dis.forward(request, response);
 }
 else
 {
+	PrintWriter out = response.getWriter(); 
+	out.println("<html><head><script>window.alert('Enter Valid Mail Id and Password');</script></head></html>");
 RequestDispatcher dis=request.getRequestDispatcher("login.jsp");
 dis.forward(request, response);
 }
@@ -48,4 +50,5 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 {
 doPost(request,response);
 }
+
 }
